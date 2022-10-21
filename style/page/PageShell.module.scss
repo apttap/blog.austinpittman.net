@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
+
+body {
+    background: #222;
+    color: #efefef;
+    margin: 0;
+    font-family: 'Source Sans Pro';
+  }
+  * {
+    box-sizing: border-box;
+  }
+  a {
+    text-decoration: none;
+  }
+  
+  .navitem {
+    padding: 3px 10px;
+  }
+  .navitem.is-active {
+    background-color: #eee;
+  }
