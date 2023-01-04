@@ -17,16 +17,27 @@ const PageShell = function ({
   return (
     <PageContextProvider pageContext={pageContext}>
       <Layout>
-        <Sidebar>
-          <Logo />
-          <Link className={style.navitem} href="/">
-            Home
-          </Link>
-          <Link className={style.navitem} href="/about">
-            About
-          </Link>
-        </Sidebar>
-        <Content>{children}</Content>
+        <div className={style.layout}>
+          <h1>Austin Pittman</h1>
+          <h2>User Interface Engineer</h2>
+          <nav className={style.pageNav}>
+            <ul>
+              <li>
+                <Link href="/">About</Link>
+              </li>
+              <li>
+                <Link href="/">Blog</Link>
+              </li>
+              <li>
+                <Link href="/about">Projects</Link>
+              </li>
+              <li>
+                <Link href="/about">Contact Me</Link>
+              </li>
+            </ul>
+          </nav>
+          <Content>{children}</Content>
+        </div>
       </Layout>
     </PageContextProvider>
   );
@@ -64,32 +75,5 @@ const Sidebar = function ({ children }: { children: ComponentChildren }) {
 };
 
 const Content = function ({ children }: { children: ComponentChildren }) {
-  return (
-    <div
-      id="page-content"
-      style={{
-        padding: 20,
-        paddingBottom: 50,
-        borderLeft: "2px solid #eee",
-        minHeight: "100vh",
-      }}
-    >
-      {children}
-    </div>
-  );
+  return <div id="page-content" className={style.content}>{children}</div>;
 };
-
-function Logo() {
-  return (
-    <div
-      style={{
-        marginTop: 20,
-        marginBottom: 10,
-      }}
-    >
-      <a href="/">
-        <img src={logo} height={64} width={64} alt="logo" />
-      </a>
-    </div>
-  );
-}
