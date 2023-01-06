@@ -21,9 +21,10 @@
     "paths": {
       "@local-types/*": ["types/*"],
       "@pages/*": ["pages/*"],
+      "@shaders/*": ["shaders/*"],
       "@style/*": ["style/*"]
     }
   },
-  "include": ["src", "renderer", "pages", "types/page/page.d.ts"],
+  "include": ["shaders", "src", "renderer", "pages", "types"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

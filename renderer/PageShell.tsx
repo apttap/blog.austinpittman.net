@@ -5,6 +5,7 @@ import { PageContext } from "@local-types/page";
 import { PageContextProvider } from "./usePageContext";
 import style from "@style/page/PageShell.module.scss";
 import { urlToFile } from "vite-plugin-ssr/dist/cjs/utils/urlToFile";
+import { ThreeScene } from "./ThreeScene";
 
 export { PageShell };
 
@@ -19,6 +20,7 @@ const PageShell = function ({
     <PageContextProvider pageContext={pageContext}>
       <Layout>
         <div className={style.layout}>
+          <ThreeScene/>
           <svg viewBox={"0 0 115 30"}>
             <defs>
               <linearGradient id="lgrad" x1="50%" y1="100%" x2="50%" y2="0%">

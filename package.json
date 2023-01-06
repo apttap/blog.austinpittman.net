@@ -12,12 +12,15 @@
     "@preact/preset-vite": "^2.3.0",
     "preact": "^10.10.6",
     "preact-render-to-string": "^5.2.5",
+    "three": "^0.148.0",
     "vite": "^3.1.0",
     "vite-plugin-ssr": "^0.4.43"
   },
   "devDependencies": {
+    "@types/three": "^0.148.0",
     "sass": "^1.55.0",
     "typescript": "^4.6.4",
+    "vite-plugin-glsl": "^1.0.2",
     "vite-tsconfig-paths": "^3.5.2"
   }
 }
