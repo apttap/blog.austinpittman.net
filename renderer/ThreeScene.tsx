@@ -1,5 +1,3 @@
-import { ComponentChildren } from "preact";
-import { PageContext } from "@local-types/page";
 import style from "@style/three/ThreeScene.module.scss";
 import { useEffect, useRef } from "preact/hooks";
 
@@ -8,9 +6,7 @@ import fragment from "@shaders/shader.frag";
 
 import * as THREE from "three";
 
-export { ThreeScene };
-
-const ThreeScene = function ({}: {}) {
+export const ThreeScene = function ({}: {}) {
   const canvasRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -26,20 +22,16 @@ const ThreeScene = function ({}: {}) {
 
     renderer.setSize(window.innerWidth, window.innerHeight);
 
-    canvasRef?.current?.appendChild(renderer.domElement);
+    canvasRef.current?.appendChild(renderer.domElement);
 
     var geometry = new THREE.BoxGeometry(1, 1, 1);
     let material = new THREE.ShaderMaterial({
       uniforms: {
-        data: {
-          value: {
-            time: 0,
-            color: new THREE.Color(0.05, 0.2, 0.025),
-          },
-        },
-        fragmentShader: fragment,
-        vertexShader: vertex,
+        time: { value: 0 },
+        color: new THREE.Uniform(new THREE.Color(0.05, 0.2, 0.025)),
       },
+      fragmentShader: fragment,
+      vertexShader: vertex,
     });
     var cube = new THREE.Mesh(geometry, material);
 
@@ -51,6 +43,10 @@ const ThreeScene = function ({}: {}) {
       cube.rotation.x += 0.01;
       cube.rotation.y += 0.01;
       renderer.render(scene, camera);
+
+      if (material) {
+        material.uniforms.time.value += 0.001;
+      }
     };
 
     animate();
